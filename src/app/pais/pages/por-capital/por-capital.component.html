@@ -1,0 +1,25 @@
+<div class="animate__animated animate__bounce">
+  <p>por Capital</p>
+
+  <div class="row">
+    <div class="col">
+      <app-pais-input
+        place="Buscar por capital..."
+        (onEnter)="buscar($event)"
+        (onDebounse)="sugerencias($event)"
+      >
+      </app-pais-input>
+    </div>
+  </div>
+  <hr />
+</div>
+
+<div *ngIf="hayError" class="alert alert-danger">
+  no se encontro nada con el termino {{ termino }}
+</div>
+
+<div *ngIf="paises.length > 0" class="alert alert-row">
+  <div class="col">
+    <app-pais-tabla [paises]="paises"></app-pais-tabla>
+  </div>
+</div>
